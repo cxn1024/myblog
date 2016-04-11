@@ -43,17 +43,11 @@ class ArticlesSearch extends Articles
     {
         $query = Articles::find();
 
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query,
-        ]);
+        // $dataProvider = new ActiveDataProvider([
+        //     'query' => $query,
+        // ]);
 
         $this->load($params);
-
-        if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
-            return $dataProvider;
-        }
 
         $query->andFilterWhere([
             'id' => $this->id,
@@ -67,6 +61,6 @@ class ArticlesSearch extends Articles
             ->andFilterWhere(['like', 'content', $this->content])
             ->andFilterWhere(['like', 'tags', $this->tags]);
 
-        return $dataProvider;
+        return $query;
     }
 }

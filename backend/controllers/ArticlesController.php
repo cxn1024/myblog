@@ -8,11 +8,12 @@ use common\models\ArticlesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\data\Pagination;
 
 /**
  * ArticlesController implements the CRUD actions for Articles model.
  */
-class ArticlesController extends Controller
+class ArticlesController extends BaseController
 {
     public function behaviors()
     {
@@ -33,11 +34,16 @@ class ArticlesController extends Controller
     public function actionIndex()
     {
         $searchModel = new ArticlesSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        $query = $searchModel->search(Yii::$app->request->queryParams)->with('user')->orderBy('create_time desc');
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count()]);
+        $data = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
         return $this->render('index', [
             'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'data' => $data,
+            'pages' => $pages
         ]);
     }
 
@@ -62,8 +68,21 @@ class ArticlesController extends Controller
     {
         $model = new Articles();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ( $params = Yii::$app->request->post() ) {
+            $model->title = $params['title'];
+            $model->tags = $params['tags'];
+            $model->category_id = $params['category_id'];
+            $model->content = $params['content'];
+            $model->status = 1;
+            $model->create_time = time();
+            $model->update_time = time();
+            $model->author_id = Yii::$app->user->id;
+            if ( $model->save() ) {
+                return $this->redirect(['index']);
+            } else {
+                return $this->goBack();
+            }
+            
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -81,8 +100,18 @@ class ArticlesController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ( $params = Yii::$app->request->post() ) {
+            $model->title = $params['title'];
+            $model->tags = $params['tags'];
+            $model->category_id = $params['category_id'];
+            $model->content = $params['content'];
+            $model->update_time = time();
+            if ( $model->save() ) {
+                return $this->redirect(['index']);
+            } else {
+                return $this->goBack();
+            }
+            // return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

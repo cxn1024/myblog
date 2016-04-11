@@ -1,79 +1,197 @@
-<?php
-
-/* @var $this \yii\web\View */
-/* @var $content string */
-
+<?php 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
-use frontend\assets\AppAsset;
-use common\widgets\Alert;
-
-AppAsset::register($this);
+$this->title = '诸葛修个人博客';
 ?>
-<?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+
+<!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+
 <head>
-    <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
+
+    <meta charset="utf-8" />
+
     <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <meta content="" name="description" />
+
+    <meta content="" name="author" />
+
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+    <link href="/media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="/media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="/media/css/style-metro.css" rel="stylesheet" type="text/css"/>
+
+    <link href="/media/css/style.css" rel="stylesheet" type="text/css"/>
+
+    <link href="/media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+
+    <link href="/media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+
+    <link href="/media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <link rel="shortcut icon" href="/media/image/favicon.ico" />
+
 </head>
-<body>
-<?php $this->beginBody() ?>
 
-<div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = [
-            'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-            'url' => ['/site/logout'],
-            'linkOptions' => ['data-method' => 'post']
-        ];
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
+<!-- END HEAD -->
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+<!-- BEGIN BODY -->
+
+<body class="page-header-fixed">
+
+    <!-- BEGIN HEADER -->
+
+    <div class="header navbar navbar-inverse navbar-fixed-top">
+
+        <!-- BEGIN TOP NAVIGATION BAR -->
+
+        <div class="navbar-inner">
+
+            <div class="container-fluid">
+
+                <!-- BEGIN LOGO -->
+
+                <a class="brand" href="index.html">
+
+                <img src="/media/image/logo.png" alt="logo"/>
+
+                </a>
+
+                <!-- END LOGO -->
+
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+
+                <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+
+                <img src="/media/image/menu-toggler.png" alt="" />
+
+                </a>          
+
+                <!-- END RESPONSIVE MENU TOGGLER -->            
+
+                <!-- BEGIN TOP NAVIGATION MENU -->              
+
+                <ul class="nav pull-right">
+
+                    <!-- BEGIN USER LOGIN DROPDOWN -->
+
+                    <li class="dropdown user">
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                        <img alt="" src="/media/image/avatar1_small.jpg" />
+
+                        <span class="username"></span>
+
+                        <i class="icon-angle-down"></i>
+
+                        </a>
+
+                        <ul class="dropdown-menu">
+
+                            <li><a href="extra_profile.html"><i class="icon-user"></i> My Profile</a></li>
+
+                            <li><a href="page_calendar.html"><i class="icon-calendar"></i> My Calendar</a></li>
+
+                            <li><a href="inbox.html"><i class="icon-envelope"></i> My Inbox(3)</a></li>
+
+                            <li><a href="#"><i class="icon-tasks"></i> My Tasks</a></li>
+
+                            <li class="divider"></li>
+
+                            <li><a href="/site/logout.html"><i class="icon-key"></i> Log Out</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <!-- END USER LOGIN DROPDOWN -->
+
+                </ul>
+
+                <!-- END TOP NAVIGATION MENU --> 
+
+            </div>
+
+        </div>
+
+        <!-- END TOP NAVIGATION BAR -->
+
     </div>
-</div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+    <?= $content ?>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+    <!-- END CONTAINER -->
+
+    <!-- BEGIN FOOTER -->
+
+    <div class="footer">
+
+        <div class="footer-tools">
+
+            <span class="go-top">
+
+            <i class="icon-angle-up"></i>
+
+            </span>
+
+        </div>
+
     </div>
-</footer>
 
-<?php $this->endBody() ?>
+    <!-- END FOOTER -->
+
+    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+
+    <!-- BEGIN CORE PLUGINS -->
+
+    <script src="/media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+
+    <script src="/media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+
+    <!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+
+    <script src="/media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      
+
+    <script src="/media/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <!--[if lt IE 9]>
+
+    <script src="/media/js/excanvas.min.js"></script>
+
+    <script src="/media/js/respond.min.js"></script>  
+
+    <![endif]-->   
+
+    <script src="/media/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+
+    <script src="/media/js/jquery.blockui.min.js" type="text/javascript"></script>  
+
+    <script src="/media/js/jquery.cookie.min.js" type="text/javascript"></script>
+
+    <script src="/media/js/jquery.uniform.min.js" type="text/javascript" ></script>
+
+    <!-- END CORE PLUGINS -->
+
+    <!-- END JAVASCRIPTS -->
+
 </body>
+
+<!-- END BODY -->
+
 </html>
-<?php $this->endPage() ?>

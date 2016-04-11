@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use backend\models\User;
 
 /**
  * This is the model class for table "xzg_articles".
@@ -54,5 +55,10 @@ class Articles extends \yii\db\ActiveRecord
             'update_time' => 'Update Time',
             'author_id' => 'Author ID',
         ];
+    }
+
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'author_id']);
     }
 }

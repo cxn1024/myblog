@@ -10,8 +10,8 @@ class BaseController extends Controller
 {
 	public function beforeAction($action)
 	{
-		if (\Yii::$app->user->isGuest) {
-			return $this->goHome();
+		if ( \Yii::$app->user->isGuest ) {
+			return $this->redirect(['site/login']);
 		}
 		return true;
 	}

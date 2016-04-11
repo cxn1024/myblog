@@ -9,14 +9,14 @@ $params = array_merge(
 return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
-    'defaultRoute' => 'site/index',
+    'defaultRoute' => 'site/login',
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
         'user' => [
-            'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
+            'identityClass' => 'backend\models\Admin',
+            'enableAutoLogin' => false,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -30,7 +30,15 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        // 'urlManager' => [
+        //     'enablePrettyUrl' => true,
+        //     // 'suffix' => '.html',
+        //     'showScriptName' => false,
+        //     'enableStrictParsing' => true,
+        //     'rules' => [
+        //         // '<controller:\w+>/<action:\w+>' => 'controller/action'
+        //     ],
+        // ]
     ],
-    //'defaultRoute' => 'test/index',
     'params' => $params,
 ];

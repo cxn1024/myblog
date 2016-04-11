@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\LoginForm;
+use common\models\Articles;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -18,37 +19,7 @@ use yii\filters\AccessControl;
  */
 class SiteController extends Controller
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
-                'rules' => [
-                    [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
-
+    
     /**
      * @inheritdoc
      */
@@ -59,10 +30,10 @@ class SiteController extends Controller
                 'class' => 'yii\web\ErrorAction',
                 'view' => '@common/views/404.php'
             ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
+            // 'captcha' => [
+            //     'class' => 'yii\captcha\CaptchaAction',
+            //     'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            // ],
         ];
     }
 
@@ -73,7 +44,19 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $articles = Articles::find()->with('user')->where(['status' => 1])->orderBy('create_time desc')->asArray()->all();
+        
+        return $this->render('index', [
+            'articles' => $articles
+        ]);
+    }
+
+    public function actionView($id)
+    {
+        $article = Articles::findOne($id);
+        return $this->render('view', [
+            'article' => $article
+        ]);
     }
 
     /**
@@ -107,29 +90,6 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
-    }
-
-    /**
-     * Displays contact page.
-     *
-     * @return mixed
-     */
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-            } else {
-                Yii::$app->session->setFlash('error', 'There was an error sending email.');
-            }
-
-            return $this->refresh();
-        } else {
-            return $this->render('contact', [
-                'model' => $model,
-            ]);
-        }
     }
 
     /**
