@@ -62,11 +62,11 @@ $this->title = '诸葛修个人博客';
 
         <div class="navbar-inner">
 
-            <div class="container-fluid">
+            <div class="container-fluid header-height">
 
                 <!-- BEGIN LOGO -->
 
-                <a class="brand" href="index.html">
+                <a class="brand" href="/">
 
                 <img src="/media/image/logo.png" alt="logo"/>
 
@@ -74,15 +74,10 @@ $this->title = '诸葛修个人博客';
 
                 <!-- END LOGO -->
 
-                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-
-                <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
-
-                <img src="/media/image/menu-toggler.png" alt="" />
-
-                </a>          
-
-                <!-- END RESPONSIVE MENU TOGGLER -->            
+                <ul class="nav nav-blog">
+                    <li class="active"><a href="/">首页</a></li>
+                    <li><a href="/about.html">关于博主</a></li>
+                </ul>
 
                 <!-- BEGIN TOP NAVIGATION MENU -->              
 

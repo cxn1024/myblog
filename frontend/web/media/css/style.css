@@ -348,7 +348,7 @@ Header and header elements.
   border: 0px;
   padding: 0px; 
   box-shadow: none;
-  height: 42px; 
+  height: 70px; 
 }
 
 .header .nav {
@@ -443,7 +443,7 @@ Page container
 }
 
 .page-header-fixed .page-container {
-  margin-top: 42px;  
+  margin-top: 70px;  
 }
 
 /***
@@ -5283,4 +5283,16 @@ Datatables Plugin(in v1.3)
 .dataTable .details tr:nth-child(even) td,
 .dataTable .details tr:nth-child(even) th {
   background-color: #eee !important;
+}
+
+.header-height{
+  height: 70px;
+}
+.brand{
+  height: 50px;
+}
+.nav-blog{
+  height: 50px;
+  padding-top: 20px;
+  font-size: 16px;  
 }

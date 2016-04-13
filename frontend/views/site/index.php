@@ -102,37 +102,17 @@ $this->title = '文章列表';
 
                             <div class="span3 blog-sidebar">
                                 
-                                <h2>Flickr</h2>
+                                <h2>热门标签</h2>
 
-                                <ul class="unstyled blog-images">
+                                <ul class="unstyled blog-tags">
 
-                                    <li><a href="#"><img alt="" src="media/image/2.jpg"></a></li>
-
-                                    <li><a href="#"><img alt="" src="media/image/3.jpg"></a></li>
-
-                                    <li><a href="#"><img alt="" src="media/image/4.jpg"></a></li>
-
-                                    <li><a href="#"><img alt="" src="media/image/5.jpg"></a></li>
-
-                                    <li><a href="#"><img alt="" src="media/image/6.jpg"></a></li>
-
-                                    <li><a href="#"><img alt="" src="media/image/8.jpg"></a></li>
-
-                                    <li><a href="#"><img alt="" src="media/image/10.jpg"></a></li>
-
-                                    <li><a href="#"><img alt="" src="media/image/11.jpg"></a></li>
-
-                                    <li><a href="#"><img alt="" src="media/image/1.jpg"></a></li>
-
-                                    <li><a href="#"><img alt="" src="media/image/2.jpg"></a></li>
-
-                                    <li><a href="#"><img alt="" src="media/image/7.jpg"></a></li>
+                                    <li><a href="" class="btn green">php</a></li>
 
                                 </ul>
 
                                 <div class="space20"></div>
 
-                                <h2>Top Entiries</h2>
+                                <h2>热门文章</h2>
 
                                 <div class="top-news">
 
@@ -154,83 +134,11 @@ $this->title = '文章列表';
 
                                     </a>
 
-                                    <a href="#" class="btn green">
-
-                                    <span>Top Week</span>
-
-                                    <em>Posted on: April 15, 2013</em>
-
-                                    <em>
-
-                                    <i class="icon-tags"></i>
-
-                                    Internet, Music, People
-
-                                    </em>
-
-                                    <i class="icon-music top-news-icon"></i>                             
-
-                                    </a>
-
-                                    <a href="#" class="btn blue">
-
-                                    <span>Gold Price Falls</span>
-
-                                    <em>Posted on: April 14, 2013</em>
-
-                                    <em>
-
-                                    <i class="icon-tags"></i>
-
-                                    USA, Business, Apple
-
-                                    </em>
-
-                                    <i class="icon-globe top-news-icon"></i>                             
-
-                                    </a>
-
-                                    <a href="#" class="btn yellow">
-
-                                    <span>Study Abroad</span>
-
-                                    <em>Posted on: April 13, 2013</em>
-
-                                    <em>
-
-                                    <i class="icon-tags"></i>
-
-                                    Education, Students, Canada
-
-                                    </em>
-
-                                    <i class="icon-book top-news-icon"></i>                              
-
-                                    </a>
-
-                                    <a href="#" class="btn purple">
-
-                                    <span>Top Destinations</span>
-
-                                    <em>Posted on: April 12, 2013</em>
-
-                                    <em>
-
-                                    <i class="icon-tags"></i>
-
-                                    Places, Internet, Google Map
-
-                                    </em>
-
-                                    <i class="icon-bolt top-news-icon"></i>                              
-
-                                    </a>
-
                                 </div>
 
                                 <div class="space20"></div>
 
-                                <h2>Recent Twitts</h2>
+                                <h2>最新评论</h2>
 
                                 <div class="blog-twitter">
 
