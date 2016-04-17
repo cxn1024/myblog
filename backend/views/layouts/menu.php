@@ -100,13 +100,13 @@
 
             </li>
 
-            <li class="<?php if(Yii::$app->controller->id == 'category'): ?> active <?php endif; ?>">
+            <li class="<?php if(Yii::$app->controller->id == 'tags'): ?> active <?php endif; ?>">
 
                 <a href="javascript:;">
 
-                <i class="icon-user"></i> 
+                <i class="icon-tags"></i> 
 
-                <span class="title">分类管理</span>
+                <span class="title">标签管理</span>
 
                 <span class="arrow "></span>
 
@@ -116,9 +116,9 @@
 
                     <li >
 
-                        <a href="/category/index.html">
+                        <a href="/tags/index.html">
 
-                        分类列表</a>
+                        标签列表</a>
 
                     </li>
 

@@ -8,7 +8,7 @@ use yii\widgets\LinkPager;
 /* @var $searchModel common\models\ArticlesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '文章';
+$this->title = '文章列表';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

@@ -238,6 +238,13 @@ Gritter Notifications
 .gritter-item-wrapper a:hover {
   color: #0b6694;
 }
+.mylogo{
+  width: 50px;
+  height: 50px;
+}
+.tags-list .label{
+  border-radius: 1em !important;
+}
 /* begin: boxed page */
 @media (min-width: 980px) {
   .page-boxed {

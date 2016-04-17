@@ -12,7 +12,7 @@
 
     <meta charset="utf-8" />
 
-    <title>Metronic | Admin Dashboard Template</title>
+    <title>博客系统管理后台</title>
 
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -257,7 +257,6 @@
     </div>
 
     <!-- END HEADER -->
-    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
 
     <!-- BEGIN CONTAINER -->
 
@@ -270,12 +269,6 @@
     <div class="footer">
 
         <div class="footer-tools">
-
-            <span class="go-top">
-
-            <i class="icon-angle-up"></i>
-
-            </span>
 
         </div>
 
@@ -317,19 +310,6 @@
 
     <!-- BEGIN PAGE LEVEL PLUGINS -->
     <script type="text/javascript" src="/media/js/ckeditor.js"></script>  
-    <script src="/media/js/jquery.vmap.js" type="text/javascript"></script>   
-
-    <script src="/media/js/jquery.vmap.russia.js" type="text/javascript"></script>
-
-    <script src="/media/js/jquery.vmap.world.js" type="text/javascript"></script>
-
-    <script src="/media/js/jquery.vmap.europe.js" type="text/javascript"></script>
-
-    <script src="/media/js/jquery.vmap.germany.js" type="text/javascript"></script>
-
-    <script src="/media/js/jquery.vmap.usa.js" type="text/javascript"></script>
-
-    <script src="/media/js/jquery.vmap.sampledata.js" type="text/javascript"></script>  
 
     <script src="/media/js/jquery.flot.js" type="text/javascript"></script>
 
@@ -355,30 +335,12 @@
 
     <script src="/media/js/app.js" type="text/javascript"></script>
 
-    <script src="/media/js/index.js" type="text/javascript"></script>        
-
     <!-- END PAGE LEVEL SCRIPTS -->  
     <script>
 
         jQuery(document).ready(function() {    
 
            App.init(); // initlayout and core plugins
-
-           Index.init();
-
-           Index.initJQVMAP(); // init index page's custom scripts
-
-           Index.initCalendar(); // init index page's custom scripts
-
-           Index.initCharts(); // init index page's custom scripts
-
-           Index.initChat();
-
-           Index.initMiniCharts();
-
-           Index.initDashboardDaterange();
-
-           Index.initIntro();
 
         });
 

@@ -2,17 +2,10 @@
 namespace frontend\controllers;
 
 use Yii;
-use common\models\LoginForm;
 use common\models\Articles;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
-use yii\base\InvalidParamException;
-use yii\web\BadRequestHttpException;
+use common\models\Tags;
 use yii\web\Controller;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
+use yii\data\Pagination;
 
 /**
  * Site controller
@@ -29,11 +22,7 @@ class SiteController extends Controller
             'error' => [
                 'class' => 'yii\web\ErrorAction',
                 'view' => '@common/views/404.php'
-            ],
-            // 'captcha' => [
-            //     'class' => 'yii\captcha\CaptchaAction',
-            //     'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            // ],
+            ]
         ];
     }
 
@@ -44,54 +33,39 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $articles = Articles::find()->with('user')->where(['status' => 1])->orderBy('create_time desc')->asArray()->all();
-        
+        $params = Yii::$app->request->get('tags');
+        $query = Articles::find()->with('user')->where(['status' => 1])->orderBy('create_time desc');
+        if ($params) {
+            $query->andWhere(['like', 'tags', $params]);
+        }
+        $queryCount = clone $query;
+        $pages = new Pagination(['totalCount' => $queryCount->count(), 'defaultPageSize' => 10]);
+        $articles = $query->offset($pages->offset)
+                  ->limit($pages->limit)
+                  ->asArray()->all();
+        $hotArticles = Articles::find()->where(['status' => 1])->orderBy('hits desc')->limit(5)->asArray()->all();
+        $hotTags = Tags::find()->orderBy('hits desc')->limit(10)->asArray()->all();
         return $this->render('index', [
-            'articles' => $articles
+            'articles' => $articles,
+            'pages' => $pages,
+            'hot' => $hotArticles,
+            'tags' => $hotTags
         ]);
     }
 
     public function actionView($id)
     {
         $article = Articles::findOne($id);
+        $article->tags = explode(',', $article->tags);
+        $hotArticles = Articles::find()->where(['status' => 1])->orderBy('hits desc')->limit(5)->asArray()->all();
+        $hotTags = Tags::find()->orderBy('hits desc')->limit(10)->asArray()->all();
         return $this->render('view', [
-            'article' => $article
+            'article' => $article,
+            'hot' => $hotArticles,
+            'tags' => $hotTags
         ]);
     }
-
-    /**
-     * Logs in a user.
-     *
-     * @return mixed
-     */
-    public function actionLogin()
-    {
-        if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    /**
-     * Logs out the current user.
-     *
-     * @return mixed
-     */
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
-    }
-
+    
     /**
      * Displays about page.
      *
@@ -100,75 +74,5 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
-    }
-
-    /**
-     * Signs user up.
-     *
-     * @return mixed
-     */
-    public function actionSignup()
-    {
-        $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
-                }
-            }
-        }
-
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Requests password reset.
-     *
-     * @return mixed
-     */
-    public function actionRequestPasswordReset()
-    {
-        $model = new PasswordResetRequestForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail()) {
-                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
-
-                return $this->goHome();
-            } else {
-                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
-            }
-        }
-
-        return $this->render('requestPasswordResetToken', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Resets password.
-     *
-     * @param string $token
-     * @return mixed
-     * @throws BadRequestHttpException
-     */
-    public function actionResetPassword($token)
-    {
-        try {
-            $model = new ResetPasswordForm($token);
-        } catch (InvalidParamException $e) {
-            throw new BadRequestHttpException($e->getMessage());
-        }
-
-        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->session->setFlash('success', 'New password was saved.');
-
-            return $this->goHome();
-        }
-
-        return $this->render('resetPassword', [
-            'model' => $model,
-        ]);
     }
 }

@@ -1,7 +1,6 @@
 <?php
 
-/* @var $this yii\web\View */
-
+use yii\widgets\LinkPager;
 $this->title = '文章列表';
 ?>
 <!-- BEGIN CONTAINER -->   
@@ -72,15 +71,15 @@ $this->title = '文章列表';
 
                                         <ul class="unstyled inline">
 
-                                            <li><i class="icon-calendar"></i> <span><?php echo date("Y-m-d H:i:s", $value['create_time']); ?></span></li>
+                                            <li><i class="icon-calendar"></i> <span><?php echo date("Y-m-d", $value['create_time']); ?></span></li>
 
-                                            <li><i class="icon-comments"></i> <span>38 Comments</span></li>
+                                            <li><i class="icon-eye-open"></i> <span>阅读<?php echo $value['hits'];?>次</span></li>
 
                                         </ul>
 
                                         <div class="space20"></div>
 
-                                        <p><?php echo $value['content']; ?></p>
+                                        <p><?php echo mb_substr($value['content'], 0, 200, 'utf-8'); ?></p>
 
                                         <a class="btn blue" href="/site/view.html?id=<?php echo $value['id']; ?>">
 
@@ -100,93 +99,7 @@ $this->title = '文章列表';
 
                             <!--end span9-->
 
-                            <div class="span3 blog-sidebar">
-                                
-                                <h2>热门标签</h2>
-
-                                <ul class="unstyled blog-tags">
-
-                                    <li><a href="" class="btn green">php</a></li>
-
-                                </ul>
-
-                                <div class="space20"></div>
-
-                                <h2>热门文章</h2>
-
-                                <div class="top-news">
-
-                                    <a href="#" class="btn red">
-
-                                    <span>Metronic News</span>
-
-                                    <em>Posted on: April 16, 2013</em>
-
-                                    <em>
-
-                                    <i class="icon-tags"></i>
-
-                                    Money, Business, Google
-
-                                    </em>
-
-                                    <i class="icon-briefcase top-news-icon"></i>
-
-                                    </a>
-
-                                </div>
-
-                                <div class="space20"></div>
-
-                                <h2>最新评论</h2>
-
-                                <div class="blog-twitter">
-
-                                    <div class="blog-twitter-block">
-
-                                        <a href="">@keenthemes</a> 
-
-                                        <p>At vero eos et accusamus et iusto odio.</p>
-
-                                        <a href="#"><em>http://t.co/sBav7dm</em></a> 
-
-                                        <span>2 hours ago</span>
-
-                                        <i class="icon-twitter blog-twiiter-icon"></i>
-
-                                    </div>
-
-                                    <div class="blog-twitter-block">
-
-                                        <a href="">@keenthemes</a> 
-
-                                        <p>At vero eos et accusamus et iusto odio.</p>
-
-                                        <a href="#"><em>http://t.co/sBav7dm</em></a> 
-
-                                        <span>5 hours ago</span>
-
-                                        <i class="icon-twitter blog-twiiter-icon"></i>
-
-                                    </div>
-
-                                    <div class="blog-twitter-block">
-
-                                        <a href="">@keenthemes</a> 
-
-                                        <p>At vero eos et accusamus et iusto odio.</p>
-
-                                        <a href="#"><em>http://t.co/sBav7dm</em></a> 
-
-                                        <span>7 hours ago</span>
-
-                                        <i class="icon-twitter blog-twiiter-icon"></i>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
+                            <?php echo $this->render('@frontend/views/layouts/right.php', ['hot' => $hot , 'tags' => $tags]); ?>
 
                             <!--end span3-->
 
@@ -194,23 +107,9 @@ $this->title = '文章列表';
 
                         <div class="pagination pagination-right">
 
-                            <ul>
-
-                                <li><a href="#">Prev</a></li>
-
-                                <li><a href="#">1</a></li>
-
-                                <li><a href="#">2</a></li>
-
-                                <li class="active"><a href="#">3</a></li>
-
-                                <li><a href="#">4</a></li>
-
-                                <li><a href="#">5</a></li>
-
-                                <li><a href="#">Next</a></li>
-
-                            </ul>
+                            <?php echo LinkPager::widget([
+                                'pagination' => $pages
+                            ]); ?>
 
                         </div>
 

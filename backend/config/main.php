@@ -30,15 +30,10 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        // 'urlManager' => [
-        //     'enablePrettyUrl' => true,
-        //     // 'suffix' => '.html',
-        //     'showScriptName' => false,
-        //     'enableStrictParsing' => true,
-        //     'rules' => [
-        //         // '<controller:\w+>/<action:\w+>' => 'controller/action'
-        //     ],
-        // ]
+        'request' => [
+            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
+            'cookieValidationKey' => '_xiaozhuge@',
+        ],
     ],
     'params' => $params,
 ];
