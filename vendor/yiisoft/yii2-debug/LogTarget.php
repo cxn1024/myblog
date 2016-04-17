@@ -109,7 +109,11 @@ class LogTarget extends Target
     {
         $this->messages = array_merge($this->messages, $messages);
         if ($final) {
+<<<<<<< HEAD
             $this->export($this->messages);
+=======
+            $this->export();
+>>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
         }
     }
 

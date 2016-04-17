@@ -17,7 +17,10 @@ $this->title = 'Yii Debugger';
         <div class="yii-debug-toolbar-block title">
             <a href="#">
                 <img width="29" height="30" alt="" src="<?= \yii\debug\Module::getYiiLogo() ?>">
+<<<<<<< HEAD
                 Yii Debugger
+=======
+>>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
             </a>
         </div>
         <?php foreach ($panels as $panel): ?>
@@ -66,7 +69,11 @@ if (isset($this->context->module->panels['db']) && isset($this->context->module-
             [
                 'attribute' => 'time',
                 'value' => function ($data) {
+<<<<<<< HEAD
                     return '<span class="nowrap">' . Yii::$app->formatter->asDatetime($data['time'], 'short') . '</span>';
+=======
+                    return '<span class="nowrap">' . Yii::$app->formatter->asDatetime($data['time'], 'yyyy-MM-dd HH:mm:ss') . '</span>';
+>>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
                 },
                 'format' => 'html',
             ],
@@ -112,6 +119,24 @@ if (isset($this->context->module->panels['db']) && isset($this->context->module-
             ],
             [
                 'attribute' => 'statusCode',
+<<<<<<< HEAD
+=======
+                'value' => function ($data) {
+                    $statusCode = $data['statusCode'];
+                    if ($statusCode === null) {
+                        $statusCode = 200;
+                    }
+                    if ($statusCode >= 200 && $statusCode < 300) {
+                        $class = 'label-success';
+                    } elseif ($statusCode >= 300 && $statusCode < 400) {
+                        $class = 'label-info';
+                    } else {
+                        $class = 'label-danger';
+                    }
+                    return "<span class=\"label {$class}\">$statusCode</span>";
+                },
+                'format' => 'raw',
+>>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
                 'filter' => $statusCodes,
                 'label' => 'Status code'
             ],

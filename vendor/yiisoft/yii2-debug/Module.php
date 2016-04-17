@@ -10,6 +10,10 @@ namespace yii\debug;
 use Yii;
 use yii\base\Application;
 use yii\base\BootstrapInterface;
+<<<<<<< HEAD
+=======
+use yii\helpers\Html;
+>>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
 use yii\helpers\Url;
 use yii\web\View;
 use yii\web\ForbiddenHttpException;
@@ -32,7 +36,11 @@ class Module extends \yii\base\Module implements BootstrapInterface
     public $allowedIPs = ['127.0.0.1', '::1'];
     /**
      * @var array the list of hosts that are allowed to access this module.
+<<<<<<< HEAD
      * Each array element is a hostname that will be resolved to an IP address that is compared 
+=======
+     * Each array element is a hostname that will be resolved to an IP address that is compared
+>>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
      * with the IP address of the user. A use case is to use a dynamic DNS (DDNS) to allow access.
      * The default value is `[]`.
      */
@@ -185,11 +193,18 @@ class Module extends \yii\base\Module implements BootstrapInterface
         $url = Url::toRoute(['/' . $this->id . '/default/toolbar',
             'tag' => $this->logTarget->tag,
         ]);
+<<<<<<< HEAD
         echo '<div id="yii-debug-toolbar" data-url="' . $url . '" style="display:none"></div>';
         /* @var $view View */
         $view = $event->sender;
         echo '<style>' . $view->renderPhpFile(__DIR__ . '/assets/toolbar.css') . '</style>';
         echo '<script>' . $view->renderPhpFile(__DIR__ . '/assets/toolbar.js') . '</script>';
+=======
+        echo '<div id="yii-debug-toolbar" data-url="' . Html::encode($url) . '" style="display:none" class="yii-debug-toolbar-bottom"></div>';
+        /* @var $view View */
+        $view = $event->sender;
+        ToolbarAsset::register($view);
+>>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
     }
 
     /**

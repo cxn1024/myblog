@@ -1,1 +1,11 @@
+<<<<<<< HEAD
 ../cebe/markdown/bin/markdown
+=======
+#!/usr/bin/env sh
+SRC_DIR="`pwd`"
+cd "`dirname "$0"`"
+cd "../cebe/markdown/bin"
+BIN_TARGET="`pwd`/markdown"
+cd "$SRC_DIR"
+"$BIN_TARGET" "$@"
+>>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e

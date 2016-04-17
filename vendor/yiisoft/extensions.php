@@ -33,7 +33,11 @@ return array (
   'yiisoft/yii2-debug' => 
   array (
     'name' => 'yiisoft/yii2-debug',
+<<<<<<< HEAD
     'version' => '2.0.4.0',
+=======
+    'version' => '2.0.5.0',
+>>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
     'alias' => 
     array (
       '@yii/debug' => $vendorDir . '/yiisoft/yii2-debug',

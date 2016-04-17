@@ -670,6 +670,7 @@
     },
     {
         "name": "yiisoft/yii2-debug",
+<<<<<<< HEAD
         "version": "2.0.4",
         "version_normalized": "2.0.4.0",
         "source": {
@@ -681,13 +682,30 @@
             "type": "zip",
             "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/5c7081b2be71c61d3a50d978b31edc3e0b6f2f97",
             "reference": "5c7081b2be71c61d3a50d978b31edc3e0b6f2f97",
+=======
+        "version": "2.0.5",
+        "version_normalized": "2.0.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/yiisoft/yii2-debug.git",
+            "reference": "1b302e67521d46feb2413d9d96ca94ed82b39b0e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/1b302e67521d46feb2413d9d96ca94ed82b39b0e",
+            "reference": "1b302e67521d46feb2413d9d96ca94ed82b39b0e",
+>>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
             "shasum": ""
         },
         "require": {
             "yiisoft/yii2": ">=2.0.4",
             "yiisoft/yii2-bootstrap": "*"
         },
+<<<<<<< HEAD
         "time": "2015-05-10 22:08:56",
+=======
+        "time": "2015-08-06 16:14:06",
+>>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
         "type": "yii2-extension",
         "extra": {
             "branch-alias": {
