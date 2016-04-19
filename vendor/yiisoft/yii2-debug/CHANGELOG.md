@@ -1,10 +1,6 @@
 Yii Framework 2 debug extension Change Log
 ==========================================
 
-<<<<<<< HEAD
-2.0.4 under development
------------------------
-=======
 2.0.5 August 06, 2015
 ---------------------
 
@@ -25,7 +21,6 @@ Yii Framework 2 debug extension Change Log
 
 2.0.4 May 10, 2015
 ------------------
->>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
 
 - Bug #7222: Improved debug toolbar display in rtl pages (mohammadhosain, cebe, samdark)
 - Enh #7655: Added ability to filter access by hostname (thiagotalma)

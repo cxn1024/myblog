@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-=======
 .main-container {
     width: auto;
 }
 
->>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
 span.indent {
     color: #ccc;
 }
@@ -18,8 +15,6 @@ ul.trace {
     white-space: normal;
 }
 
-<<<<<<< HEAD
-=======
 #db-panel-detailed-grid table tbody tr td {
     position: relative;
 }
@@ -47,7 +42,6 @@ ul.trace {
     margin-right: 15px;
 }
 
->>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
 ul.assets {
     margin: 2px 0 0 0;
     padding: 0;
@@ -91,13 +85,10 @@ td, th {
     word-break: break-all;
 }
 
-<<<<<<< HEAD
-=======
 .request-table tr > th:first-child {
     width: 25%;
 }
 
->>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
 .config-php-info-table td.v {
     word-break: break-all;
 }

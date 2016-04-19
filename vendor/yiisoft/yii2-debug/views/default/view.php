@@ -19,10 +19,6 @@ $this->title = 'Yii Debugger';
         <div class="yii-debug-toolbar-block title">
             <a href="<?= Url::to(['index']) ?>">
                 <img width="29" height="30" alt="" src="<?= \yii\debug\Module::getYiiLogo() ?>">
-<<<<<<< HEAD
-                Yii Debugger
-=======
->>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
             </a>
         </div>
 
@@ -31,11 +27,7 @@ $this->title = 'Yii Debugger';
         <?php endforeach; ?>
     </div>
 
-<<<<<<< HEAD
-    <div class="container">
-=======
     <div class="container main-container">
->>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
         <div class="row">
             <div class="col-lg-2 col-md-2">
                 <div class="list-group">
@@ -68,12 +60,8 @@ $this->title = 'Yii Debugger';
                         $count = 0;
                         $items = [];
                         foreach ($manifest as $meta) {
-<<<<<<< HEAD
-                            $label = $meta['tag'] . ': ' . $meta['method'] . ' ' . $meta['url'] . ($meta['ajax'] ? ' (AJAX)' : '')
-=======
                             $label = ($meta['tag'] == $tag ? Html::tag('strong', '&#9654;&nbsp;'.$meta['tag']) : $meta['tag'])
                                 . ': ' . $meta['method'] . ' ' . $meta['url'] . ($meta['ajax'] ? ' (AJAX)' : '')
->>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
                                 . ', ' . date('Y-m-d h:i:s a', $meta['time'])
                                 . ', ' . $meta['ip'];
                             $url = ['view', 'tag' => $meta['tag'], 'panel' => $activePanel->id];
@@ -93,11 +81,7 @@ $this->title = 'Yii Debugger';
                                 ButtonDropdown::widget([
                                     'label' => 'Last 10',
                                     'options' => ['class' => 'btn-default btn-sm'],
-<<<<<<< HEAD
-                                    'dropdown' => ['items' => $items],
-=======
                                     'dropdown' => ['items' => $items, 'encodeLabels' => false],
->>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
                                 ]),
                             ],
                         ]);

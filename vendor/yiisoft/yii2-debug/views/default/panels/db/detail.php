@@ -5,17 +5,9 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-<<<<<<< HEAD
-
-?>
-<h1><?= $panel->getName(); ?> Queries</h1>
-
-<?php
-=======
 use yii\web\View;
 
 echo Html::tag('h1', $panel->getName() . ' Queries');
->>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
 
 echo GridView::widget([
     'dataProvider' => $dataProvider,
@@ -53,21 +45,13 @@ echo GridView::widget([
         [
             'attribute' => 'type',
             'value' => function ($data) {
-<<<<<<< HEAD
-                return Html::encode(mb_strtoupper($data['type'], 'utf8'));
-=======
                 return Html::encode($data['type']);
->>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
             },
             'filter' => $panel->getTypes(),
         ],
         [
             'attribute' => 'query',
-<<<<<<< HEAD
-            'value' => function ($data) {
-=======
             'value' => function ($data) use ($hasExplain, $panel) {
->>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
                 $query = Html::encode($data['query']);
 
                 if (!empty($data['trace'])) {
@@ -79,8 +63,6 @@ echo GridView::widget([
                     ]);
                 }
 
-<<<<<<< HEAD
-=======
                 if ($hasExplain && $panel::canBeExplained($data['type'])) {
                     $query .= Html::tag('p', '', ['class' => 'db-explain-text']);
 
@@ -91,7 +73,6 @@ echo GridView::widget([
                     );
                 }
 
->>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
                 return $query;
             },
             'format' => 'html',
@@ -101,8 +82,6 @@ echo GridView::widget([
         ]
     ],
 ]);
-<<<<<<< HEAD
-=======
 
 if ($hasExplain) {
     echo Html::tag(
@@ -138,4 +117,3 @@ function debug_db_detail() {
     });
 }
 </script>
->>>>>>> 234dd934ca10be5c3637987017ccf21e8d5da76e
