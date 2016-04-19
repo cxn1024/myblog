@@ -55,6 +55,8 @@
     <!-- END PAGE LEVEL STYLES -->
 
     <link rel="shortcut icon" href="/media/image/favicon.ico" />
+    
+    <script src="/media/js/tongji.js" type="text/javascript"></script>
 
 </head>
 

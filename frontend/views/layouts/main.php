@@ -46,6 +46,8 @@ $this->title = '诸葛修个人博客';
 
     <link rel="shortcut icon" href="/media/image/favicon.ico" />
 
+    <script src="/media/js/tongji.js" type="text/javascript"></script>
+
 </head>
 
 <!-- END HEAD -->
