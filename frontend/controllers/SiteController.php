@@ -37,6 +37,9 @@ class SiteController extends Controller
         $query = Articles::find()->with('user')->where(['status' => 1])->orderBy('create_time desc');
         if ($params) {
             $query->andWhere(['like', 'tags', $params]);
+            $tag = Tags::findOne(['name' => $params]);
+            $tag->hits += 1;
+            $tag->save();
         }
         $queryCount = clone $query;
         $pages = new Pagination(['totalCount' => $queryCount->count(), 'defaultPageSize' => 10]);
@@ -56,6 +59,8 @@ class SiteController extends Controller
     public function actionView($id)
     {
         $article = Articles::findOne($id);
+        $article->hits += 1;
+        $article->save();
         $article->tags = explode(',', $article->tags);
         $hotArticles = Articles::find()->where(['status' => 1])->orderBy('hits desc')->limit(5)->asArray()->all();
         $hotTags = Tags::find()->orderBy('hits desc')->limit(10)->asArray()->all();
