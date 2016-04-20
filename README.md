@@ -1,5 +1,6 @@
 yii2搭建的个人网站
-[博客地址](http://www.woaiphp)
+
+[博客地址](http://www.woaiphp.com)
 
 ```
 common
