@@ -20,9 +20,11 @@ $this->title = 'IT小诸葛个人博客';
 
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <meta content="" name="description" />
+    <meta content="IT小诸葛个人博客,php工程师,yii爱好者,尊崇诸葛孔明" name="description" />
 
-    <meta content="" name="author" />
+    <meta content="IT小诸葛" name="author" />
+
+    <meta content="IT小诸葛个人博客" name="keywords" />
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
 
