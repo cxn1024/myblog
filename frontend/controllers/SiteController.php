@@ -38,8 +38,10 @@ class SiteController extends Controller
         if ($params) {
             $query->andWhere(['like', 'tags', $params]);
             $tag = Tags::findOne(['name' => $params]);
-            $tag->hits += 1;
-            $tag->save();
+            if ($tag) {
+                $tag->hits += 1;
+                $tag->save();
+            }
         }
         $queryCount = clone $query;
         $pages = new Pagination(['totalCount' => $queryCount->count(), 'defaultPageSize' => 10]);

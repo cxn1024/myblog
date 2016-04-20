@@ -116,7 +116,9 @@ $this->title = '诸葛修个人博客';
             </span>
 
         </div>
-
+        <div class="span12">
+            <p class="text-center"><span class="grey label">桂ICP备16002605号</span></p>
+        </div>
     </div>
 
     <!-- END FOOTER -->

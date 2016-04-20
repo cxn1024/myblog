@@ -245,6 +245,9 @@ Gritter Notifications
 .tags-list .label{
   border-radius: 1em !important;
 }
+.footer .grey{
+  background: #3d3d3d;
+}
 /* begin: boxed page */
 @media (min-width: 980px) {
   .page-boxed {
