@@ -1,6 +1,6 @@
 <?php 
 use yii\helpers\Html;
-$this->title = '诸葛修个人博客';
+$this->title = 'IT小诸葛个人博客';
 ?>
 <!DOCTYPE html>
 
@@ -78,7 +78,7 @@ $this->title = '诸葛修个人博客';
 
                 <ul class="nav nav-blog">
                     <li class="active"><a href="/">首页</a></li>
-                    <li><a href="/about.html">关于博主</a></li>
+                    <!-- <li><a href="/about.html">关于博主</a></li> -->
                 </ul>
 
                 <!-- BEGIN TOP NAVIGATION MENU -->              
@@ -117,11 +117,11 @@ $this->title = '诸葛修个人博客';
 
         </div>
         <div class="span12">
-            <ul class="inline text-center">
+            <!-- <ul class="inline text-center">
                 <li><span>友情链接：</span></li>
                 <li><a href="http://www.baidu.com" class="grey label" target="_blank">百度</a></li>
                 <li><a href="http://www.163.com" class="grey label" target="_blank">网易</a></li>
-            </ul>
+            </ul> -->
             <p class="text-center"><span class="grey label">Copyright © 2016 桂ICP备16002605号</span></p>
         </div>
     </div>

@@ -248,6 +248,9 @@ Gritter Notifications
 .footer .grey{
   background: #3d3d3d;
 }
+.margin-bottom50{
+  margin-bottom: 50px !important;
+}
 /* begin: boxed page */
 @media (min-width: 980px) {
   .page-boxed {

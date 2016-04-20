@@ -79,7 +79,7 @@ $this->title = '文章列表';
 
                                         <div class="space20"></div>
 
-                                        <p><?php echo mb_substr($value['content'], 0, 200, 'utf-8'); ?></p>
+                                        <p>简介: <?php echo !empty($value['description']) ? mb_substr($value['description'], 0, 200, 'utf-8') : '作者太懒，忘记写了！'; ?></p>
 
                                         <a class="btn blue" href="/site/view.html?id=<?php echo $value['id']; ?>">
 

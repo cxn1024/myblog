@@ -128,7 +128,19 @@ $this->params['breadcrumbs'][] = 'Update';
 
 													<div class="controls">
 
-														<input type="text" name="tags" value="<?php echo $model['tags'];?>" placeholder="标签" class="m-wrap large" />
+														<input type="text" name="tags" value="<?php echo $model['tags'];?>" placeholder="标签" class="m-wrap large" /><span class="inline">(多个标签用,隔开)</span>
+
+													</div>
+
+												</div>
+												
+												<div class="control-group">
+
+													<label class="control-label">描述</label>
+
+													<div class="controls">
+
+														<textarea name="description"><?php echo $model['description'];?></textarea>
 
 													</div>
 

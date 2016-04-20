@@ -61,6 +61,7 @@ class ArticlesController extends BaseController
             $model->tags = $params['tags'];
             $model->category_id = $params['category_id'];
             $model->content = $params['content'];
+            $model->description = $params['description'];
             $model->status = 1;
             $model->create_time = time();
             $model->update_time = time();
@@ -93,6 +94,7 @@ class ArticlesController extends BaseController
             $model->tags = $params['tags'];
             $model->category_id = $params['category_id'];
             $model->content = $params['content'];
+            $model->description = $params['description'];
             $model->update_time = time();
             if ( $model->save() ) {
                 return $this->redirect(['index']);

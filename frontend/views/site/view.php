@@ -75,7 +75,7 @@
 
 					<div class="span12 blog-page">
 
-						<div class="row-fluid">
+						<div class="row-fluid  margin-bottom50">
 
 							<div class="span9 article-block">
 
