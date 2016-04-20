@@ -117,7 +117,12 @@ $this->title = '诸葛修个人博客';
 
         </div>
         <div class="span12">
-            <p class="text-center"><span class="grey label">桂ICP备16002605号</span></p>
+            <ul class="inline text-center">
+                <li><span>友情链接：</span></li>
+                <li><a href="http://www.baidu.com" class="grey label" target="_blank">百度</a></li>
+                <li><a href="http://www.163.com" class="grey label" target="_blank">网易</a></li>
+            </ul>
+            <p class="text-center"><span class="grey label">Copyright © 2016 桂ICP备16002605号</span></p>
         </div>
     </div>
 
