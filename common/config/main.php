@@ -6,7 +6,7 @@ return [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=localhost;dbname=myblog',
             'username' => 'root',
-            'password' => 'root',
+            'password' => '@qinxiaoli',
             'charset' => 'utf8',
         ],
         'cache' => [
